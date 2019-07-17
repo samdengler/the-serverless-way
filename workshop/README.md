@@ -18,14 +18,41 @@ These are the items you will need for the Workshop.
 
 <br/>
 
+**You will perform the setup and follow the workshop in your Cloud9 environment**
+
+<br/>
+
 ## Hands-On: Setup
+
+The first part of getting set up is to log into Serverless Framework Enterprise, enabling automatic set-up of Metrics, Alerts, Testing and much more, for free.
+
+1. Open **https://dashboard.serverless.com** in your browser
+2. Choose to Log In with GitHub or Google, or Sign Up using an email address.  Verify your email if you are just signing up for the first time.  Note: You may need to login twice if you are registering and verifying your email address.  We give a lot away for free, so we need to make sure you are a real human :)
+3. Choose a username
+4. Select the default app name **myapp** or choose your own.  **Note: this is your `app` name is used in the workshop**
+
+Once logged into Serverless Dashboard:
+
+1. Your **tenant** is listed in the upper right corner of the browser.  Please make note of the value as your will use it in the workshop
+2. Click your tenant name in the upper right corner of the browser, and click **personal access keys**
+3. Click the **add** button
+4. Type **July17** as the key name, and click the **create** button
+5. Copy your personal access key to be used in the workshop.  This is the only time it will be visible, but if you lose it, you can create another key using the same process.
+6. Click the **done** button
+
+In your Cloud9 environment and execute the following command, replacing YOUR_KEY with the value you copied in the previous step.
+
+```text
+echo "export SERVERLESS_ACCESS_KEY=YOUR_KEY" >> ~/.bashrc && source ~/.bashrc
+```
+
+---
 
 Clone `the-serverless-way` repository
 
 ```text
 $ git clone https://www.github.com/serverless/the-serverless-way
 ```
-
 ---
 
 There are three Services (a "Service" is a Serverless Framework project), containing functions, a database and a front-end React application.  You must `cd` into each and install the NPM dependencies.
@@ -49,20 +76,6 @@ The front-end application is a React application.  Run `npm run build` to build 
 ```text
 $ npm run build
 ```
----
-
-The last part of getting set up is to log into Serverless Framework Enterprise, enabling automatic set-up of Metrics, Alerts, Testing and much more, for free.
-
-In `/workshop/template-fullstack/backend/functions` run `serverless login`
-
-```text
-$ serverless login
-```
-
-Login or register for Serverless Framework Enterprise.  Verify your email if you are just signing up for the first time.  Note: You may need to login twice if you are registering and verifying your email address.  We give a lot away for free, so we need to make sure you are a real human :)
-
-Make sure you create a `tenant` and then an `app`.
-
 ---
 
 In `/workshop/template-fullstack/backend/database/serverless.yml`, `/workshop/template-fullstack/backend/functions/serverless.yml` & `/workshop/template-fullstack/frontend/serverless.yml` change the following...
